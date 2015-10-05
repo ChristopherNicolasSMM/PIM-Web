@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Clientes</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <fieldset>
+                <legend><h1>Cadastro de Clientes</h1></legend>
+                <br/>
+                <h:messages/>
+                <p:panelGrid columns="4">
+                <p:outputLabel value="Nome" for="nome"></p:outputLabel> 
+                <p:inputText id="nome" value="#{clienteMB.cliente.nome}" required="true" 
+                             validatorMessage="Campo Nome valor máximo 200 caracteres.">
+                    <f:validateLength maximum="200"></f:validateLength> <!-- IMPLANTAR VALIDAÇÃO... -->
+                </p:inputText>
+                
+                <p:outputLabel value="E-Mail" for="email"></p:outputLabel> 
+                <p:inputText id="email" value="#{clienteMB.cliente.email}" required="true" 
+                             validatorMessage="Campo E-Mail valor máximo 200 caracteres.">
+                    <f:validateLength maximum="200"></f:validateLength>
+                </p:inputText>
+                
+                <p:outputLabel value="CPF" for="cpf"></p:outputLabel> 
+                <p:inputMask id="cpf" value="#{clienteMB.cliente.cpf}"  mask="999.999.999-99" required="true"></p:inputMask>
+                
+                <p:outputLabel value="Data de Nascimento" for="dtnascimento"></p:outputLabel> 
+                <p:calendar id="dtnascimento" value="#{clienteMB.cliente.dtnascimento}">
+                    <f:convertDateTime pattern="dd/MM/yyyy" timeZone="America/Sao_Paulo"></f:convertDateTime>
+                </p:calendar>
+                           
+                <p:outputLabel value="Telefone Primário" for="telefoneprimario"></p:outputLabel>
+                <p:inputMask id="telefoneprimario" value="#{clienteMB.cliente.telefoneprimario}" 
+                             mask="99-9999-9999" required="true"></p:inputMask>
+                
+                <p:outputLabel value="Telefone Secundário" for="telefonesecundario"></p:outputLabel> 
+                <p:inputMask id="telefonesecundario" value="#{clienteMB.cliente.telefonesecundario}" 
+                             mask="99-9999-9999"></p:inputMask>
+                
+                <p:outputLabel value="Celular" for="celular"></p:outputLabel> 
+                <p:inputMask id="celular" value="#{clienteMB.cliente.celular}" 
+                             mask="99-99999-9999"></p:inputMask>
+
+                <p:outputLabel value="Logradouro" for="logradouro"></p:outputLabel> 
+                <p:inputText id="logradouro" value="#{clienteMB.cliente.logradouro}" ></p:inputText>
+                
+                <p:outputLabel value="Número" for="numero"></p:outputLabel> 
+                <p:inputText id="numero" value="#{clienteMB.cliente.numero}" ></p:inputText>
+                
+                <p:outputLabel value="Complemento" for="complemento"></p:outputLabel> 
+                <p:inputText id="complemento" value="#{clienteMB.cliente.complemento}" ></p:inputText>
+                
+                <p:outputLabel value="CEP" for="cep"></p:outputLabel> 
+                <p:inputMask id="cep" value="#{clienteMB.cliente.cep}" 
+                             mask="00000-000"></p:inputMask>
+                
+                <p:outputLabel value="Bairro" for="bairro"></p:outputLabel> 
+                <p:inputText id="bairro" value="#{clienteMB.cliente.bairro}" ></p:inputText>
+                
+                <p:outputLabel value="Cidade" for="cidade"></p:outputLabel> 
+                <p:inputText id="cidade" value="#{clienteMB.cliente.cidade}" ></p:inputText>
+                
+                <p:outputLabel value="Estado" for="uf" ></p:outputLabel>
+                <p:selectOneMenu id="uf" value="#{clienteMB.cliente.uf}">
+                    <f:selectItem itemLabel="Selecione um Estado" itemValue=""></f:selectItem>
+                    <f:selectItem itemLabel="AC" itemValue="AC"></f:selectItem>
+                    <f:selectItem itemLabel="SP" itemValue="SP"></f:selectItem>
+                    <f:selectItem itemLabel="TO" itemValue="TO"></f:selectItem>
+                </p:selectOneMenu>
+                <p:commandButton id="enviarbtn" value="Enviar" action="#{clienteMB.enviarCliente()}"></p:commandButton>
+                </p:panelGrid>
+            </fieldset>
+        </h:form>
+    </h:body>
+</html>
+

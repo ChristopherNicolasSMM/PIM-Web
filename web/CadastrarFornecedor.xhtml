@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Fornecedores</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <fieldset>
+                <legend><h1>Cadastro de Fornecedores</h1></legend>
+                <br/>
+                <h:messages/>
+                <p:panelGrid columns="4">
+                <p:outputLabel value="Razão Social" for="razao"></p:outputLabel> 
+                <p:inputText id="razao" value="#{fornecedorMB.fornecedor.razao}" required="true" 
+                             validatorMessage="Campo Razão Social valor máximo 200 caracteres.">
+                    <f:validateLength maximum="200"></f:validateLength> <!-- IMPLANTAR VALIDAÇÃO... -->
+                </p:inputText>
+                
+                <p:outputLabel value="Nome Fantasia" for="fantasia"></p:outputLabel> 
+                <p:inputText id="fantasia" value="#{fornecedorMB.fornecedor.fantasia}" required="true" 
+                             validatorMessage="Campo Nome Fantasia valor máximo 200 caracteres.">
+                    <f:validateLength maximum="200"></f:validateLength>
+                </p:inputText>
+                
+                <p:outputLabel value="E-Mail" for="email"></p:outputLabel> 
+                <p:inputText id="email" value="#{fornecedorMB.fornecedor.email}" required="true" 
+                             validatorMessage="Campo E-Mail valor máximo 200 caracteres.">
+                    <f:validateLength maximum="200"></f:validateLength>
+                </p:inputText>
+                
+                <p:outputLabel value="CNPJ" for="cnpj"></p:outputLabel> 
+                <p:inputMask id="cnpj" value="#{fornecedorMB.fornecedor.cnpj}"  mask="99.999.999/9999-99" required="true"></p:inputMask>
+                           
+                <p:outputLabel value="Telefone Primário" for="telefoneprimario"></p:outputLabel>
+                <p:inputMask id="telefoneprimario" value="#{fornecedorMB.fornecedor.telefoneprimario}" 
+                             mask="99-9999-9999" required="true"></p:inputMask>
+                
+                <p:outputLabel value="Telefone Secundário" for="telefonesecundario"></p:outputLabel> 
+                <p:inputMask id="telefonesecundario" value="#{fornecedorMB.fornecedor.telefonesecundario}" 
+                             mask="99-9999-9999"></p:inputMask>
+                
+                <p:outputLabel value="Telefone Ternário" for="telefoneternario"></p:outputLabel>
+                <p:inputMask id="telefoneternario" value="#{fornecedorMB.fornecedor.telefoneternario}" 
+                             mask="99-9999-9999"></p:inputMask>
+                
+                <p:outputLabel value="Celular" for="celular"></p:outputLabel> 
+                <p:inputMask id="celular" value="#{fornecedorMB.fornecedor.celular}" 
+                             mask="99-99999-9999"></p:inputMask>
+
+                <p:outputLabel value="Logradouro" for="logradouro"></p:outputLabel> 
+                <p:inputText id="logradouro" value="#{fornecedorMB.fornecedor.logradouro}" ></p:inputText>
+                
+                <p:outputLabel value="Número" for="numero"></p:outputLabel> 
+                <p:inputText id="numero" value="#{fornecedorMB.fornecedor.numero}" ></p:inputText>
+                
+                <p:outputLabel value="Complemento" for="complemento"></p:outputLabel> 
+                <p:inputText id="complemento" value="#{fornecedorMB.fornecedor.complemento}" ></p:inputText>
+                
+                <p:outputLabel value="CEP" for="cep"></p:outputLabel> 
+                <p:inputMask id="cep" value="#{fornecedorMB.fornecedor.cep}" 
+                             mask="00000-000"></p:inputMask>
+                
+                <p:outputLabel value="Bairro" for="bairro"></p:outputLabel> 
+                <p:inputText id="bairro" value="#{fornecedorMB.fornecedor.bairro}" ></p:inputText>
+                
+                <p:outputLabel value="Cidade" for="cidade"></p:outputLabel> 
+                <p:inputText id="cidade" value="#{fornecedorMB.fornecedor.cidade}" ></p:inputText>
+                
+                <p:outputLabel value="Estado" for="uf" ></p:outputLabel>
+                <p:selectOneMenu id="uf" value="#{fornecedorMB.fornecedor.uf}">
+                    <f:selectItem itemLabel="Selecione um Estado" itemValue=""></f:selectItem>
+                    <f:selectItem itemLabel="AC" itemValue="AC"></f:selectItem>
+                    <f:selectItem itemLabel="SP" itemValue="SP"></f:selectItem>
+                    <f:selectItem itemLabel="TO" itemValue="TO"></f:selectItem>
+                </p:selectOneMenu>
+                <p:commandButton id="enviarbtn" value="Enviar" action="#{fornecedorMB.enviarFornecedor()}"></p:commandButton>
+                </p:panelGrid>
+            </fieldset>
+        </h:form>
+    </h:body>
+</html>
+
